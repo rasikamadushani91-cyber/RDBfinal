@@ -1,0 +1,393 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RDB- Executive Dashboard</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Icons -->
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+<div class="app">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+
+        <div class="brand">
+            <div class="brand-logo">T</div>
+            <div>
+                <h3>RDB</h3>
+                <small>Development Process</small>
+            </div>
+        </div>
+
+        <nav class="side-menu">
+            <a href="#" class="menu-item active">
+                <i class="fa-solid fa-house"></i>
+                <span>Dashboard</span>
+            </a>
+
+            <div class="menu-heading">PROJECT MANAGEMENT</div>
+
+            <a href="#projects" class="menu-item">
+                <i class="fa-solid fa-folder"></i>
+                <span>All Projects</span>
+            </a>
+            <a href="#departments" class="menu-item">
+                <i class="fa-solid fa-building"></i>
+                <span>Departments</span>
+            </a>
+            <a href="#projects" class="menu-item">
+                <i class="fa-solid fa-location-dot"></i>
+                <span>Sub-Counties</span>
+            </a>
+            <a href="#projects" class="menu-item">
+                <i class="fa-solid fa-calendar"></i>
+                <span>Financial Years</span>
+            </a>
+
+            <div class="menu-heading">PROJECT TYPES</div>
+
+            <a href="#projects" class="menu-item">
+                <i class="fa-solid fa-tags"></i>
+                <span>Project Type</span>
+            </a>
+            <a href="#projects" class="menu-item">
+                <i class="fa-solid fa-flag"></i>
+                <span>County Projects</span>
+            </a>
+            <a href="#projects" class="menu-item">
+                <i class="fa-solid fa-list-check"></i>
+                <span>Programs</span>
+            </a>
+            <a href="#projects" class="menu-item">
+                <i class="fa-solid fa-graduation-cap"></i>
+                <span>ELLOCA Project</span>
+            </a>
+            <a href="#projects" class="menu-item">
+                <i class="fa-solid fa-chart-line"></i>
+                <span>KDSSP II Project</span>
+            </a>
+
+            <div class="side-actions">
+                <button class="side-button" id="addProjectSide">
+                    <i class="fa-solid fa-plus"></i>
+                    <span>Add New Project</span>
+                </button>
+                <button class="side-button" id="feedbackSide">
+                    <i class="fa-regular fa-message"></i>
+                    <span>Project Feedback</span>
+                </button>
+                <button class="side-button" id="reportsSide">
+                    <i class="fa-solid fa-chart-column"></i>
+                    <span>Reports</span>
+                </button>
+            </div>
+        </nav>
+
+        <div class="user-profile">
+            <div class="avatar">MK</div>
+            <div class="user-info">
+                <strong>Mutai Kipkemboi</strong>
+                <small>Executive</small>
+            </div>
+        </div>
+
+        <button class="collapse-button" id="collapseBtn">
+            <i class="fa-solid fa-angles-left"></i>
+            <span>Collapse Sidebar</span>
+        </button>
+
+    </aside>
+
+    <!-- MAIN AREA -->
+    <main class="main-area">
+
+        <!-- BLUE HEADER -->
+        <header class="top-header">
+
+            <button class="mobile-menu" id="mobileMenu"
+                    aria-label="Open sidebar">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <div class="page-brand">PMTS</div>
+
+            <nav class="top-nav">
+                <a href="#departments">
+                    <i class="fa-solid fa-building"></i> Departments
+                </a>
+                <a href="#projects">
+                    <i class="fa-solid fa-calendar-days"></i> Financial Years
+                </a>
+                <a href="#projects">
+                    <i class="fa-solid fa-tag"></i> Project Types
+                </a>
+                <a href="#projects">
+                    <i class="fa-solid fa-flag"></i> Flagship Projects
+                </a>
+            </nav>
+
+            <div class="header-tools">
+                <div class="search-box">
+                    <input type="text" id="searchInput"
+                           placeholder="Search projects...">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+                <button class="header-icon" id="headerAdd"
+                        title="Add project">
+                    <i class="fa-solid fa-plus"></i>
+                </button>
+                <button class="header-icon" id="cloudBtn"
+                        title="Cloud">
+                    <i class="fa-solid fa-cloud-arrow-up"></i>
+                </button>
+                <button class="header-icon notification" id="notificationBtn"
+                        title="Notifications">
+                    <i class="fa-regular fa-bell"></i>
+                    <span class="dot"></span>
+                </button>
+                <button class="header-icon" id="historyBtn" title="History">
+                    <i class="fa-regular fa-clock"></i>
+                </button>
+                <button class="header-icon notification" id="messagesBtn"
+                        title="Messages">
+                    <i class="fa-regular fa-comments"></i>
+                    <span class="count">3</span>
+                </button>
+                <button class="account-button" id="accountBtn">M</button>
+            </div>
+        </header>
+
+        <!-- DASHBOARD CONTENT -->
+        <section class="dashboard-content">
+
+            <div class="page-title">
+                <h1>Executive Dashboard</h1>
+                <p>Comprehensive overview of projects across Trans-Nzoia County.</p>
+            </div>
+
+            <!-- FILTER BAR -->
+            <div class="filter-bar">
+                <div class="filter-left">
+                    <label for="timeframe">Select Timeframe:</label>
+                    <select id="timeframe">
+                        <option value="current">Current Term (2022-Present)</option>
+                        <option value="2025">2025 - 2026</option>
+                        <option value="2024">2024 - 2025</option>
+                        <option value="all">All Financial Years</option>
+                    </select>
+                    <span class="current-view" id="currentView">
+                        Currently viewing: Current Term (2022-Present)
+                    </span>
+                </div>
+
+                <button class="filter-button" id="filterBtn">
+                    <i class="fa-solid fa-filter"></i>
+                    Filter by Location/Department
+                </button>
+            </div>
+
+            <!-- QUICK ACTIONS -->
+            <section class="quick-actions">
+                <h2>Quick Actions</h2>
+                <div class="action-buttons">
+                    <button class="action-btn orange" id="addProjectBtn">
+                        <i class="fa-solid fa-plus"></i> Add Project
+                    </button>
+                    <button class="action-btn dark" id="viewProjectsBtn">
+                        <i class="fa-solid fa-list"></i> View All Projects
+                    </button>
+                    <button class="action-btn purple" id="feedbackBtn">
+                        <i class="fa-regular fa-message"></i> View All Feedback
+                    </button>
+                </div>
+            </section>
+
+            <!-- SUMMARY CARDS -->
+            <section class="summary-grid" id="projects">
+
+                <article class="summary-card">
+                    <p>Total Projects</p>
+                    <h2 id="totalProjects">13</h2>
+                    <div class="project-stats">
+                        <span class="green-text">7 Completed</span>
+                        <span class="blue-text">2 Ongoing</span>
+                        <span class="red-text">1 Stalled</span>
+                    </div>
+                </article>
+
+                <article class="summary-card">
+                    <p>Total Budget Allocation</p>
+                    <h2>KES 62,191,416</h2>
+                    <div class="progress-track">
+                        <div class="progress-fill" style="width:43.5%"></div>
+                    </div>
+                    <small>43.5% Budget Absorption Rate</small>
+                </article>
+
+                <article class="summary-card">
+                    <p>Total Expenditure</p>
+                    <h2>KES 27,081,056</h2>
+                    <div class="expenditure-row">
+                        <span>62,191,416 Allocated</span>
+                        <span>27,081,056 Spent</span>
+                        <strong>43.5% Rate</strong>
+                    </div>
+                </article>
+
+            </section>
+
+            <!-- PROJECT STATUS -->
+            <section class="status-grid">
+
+                <article class="status-card completed">
+                    <div class="status-main">
+                        <div class="status-icon">
+                            <i class="fa-solid fa-check"></i>
+                        </div>
+                        <div>
+                            <p>Completed</p>
+                            <h2>7</h2>
+                        </div>
+                    </div>
+                    <button class="details-btn" data-status="Completed">
+                        View Details <i class="fa-solid fa-angle-right"></i>
+                    </button>
+                </article>
+
+                <article class="status-card ongoing">
+                    <div class="status-main">
+                        <div class="status-icon">
+                            <i class="fa-solid fa-forward"></i>
+                        </div>
+                        <div>
+                            <p>Ongoing</p>
+                            <h2>2</h2>
+                        </div>
+                    </div>
+                    <button class="details-btn" data-status="Ongoing">
+                        View Details <i class="fa-solid fa-angle-right"></i>
+                    </button>
+                </article>
+
+                <article class="status-card stalled">
+                    <div class="status-main">
+                        <div class="status-icon">
+                            <i class="fa-solid fa-shield-halved"></i>
+                        </div>
+                        <div>
+                            <p>Stalled</p>
+                            <h2>1</h2>
+                        </div>
+                    </div>
+                    <button class="details-btn" data-status="Stalled">
+                        View Details <i class="fa-solid fa-angle-right"></i>
+                    </button>
+                </article>
+
+                <article class="status-card procurement">
+                    <div class="status-main">
+                        <div class="status-icon">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </div>
+                        <div>
+                            <p>Procurement</p>
+                            <h2>1</h2>
+                        </div>
+                    </div>
+                    <button class="details-btn" data-status="Procurement">
+                        View Details <i class="fa-solid fa-angle-right"></i>
+                    </button>
+                </article>
+
+                <article class="status-card not-started">
+                    <div class="status-main">
+                        <div class="status-icon">
+                            <i class="fa-regular fa-clock"></i>
+                        </div>
+                        <div>
+                            <p>Not Started</p>
+                            <h2>2</h2>
+                        </div>
+                    </div>
+                    <button class="details-btn" data-status="Not Started">
+                        View Details <i class="fa-solid fa-angle-right"></i>
+                    </button>
+                </article>
+
+            </section>
+
+            <!-- DEPARTMENT TABLE -->
+            <section class="department-section" id="departments">
+                <div class="section-heading">
+                    <h2>Departmental Performance Summary</h2>
+                    <span id="resultCount">2 departments</span>
+                </div>
+
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Department</th>
+                                <th>Project Count</th>
+                                <th>Avg. Completion</th>
+                                <th>Budget Allocated (KES)</th>
+                                <th>Budget Spent (KES)</th>
+                                <th>Absorption Rate (%)</th>
+                            </tr>
+                        </thead>
+                        <tbody id="departmentTable">
+                            <tr>
+                                <td class="department-name">
+                                    Health Services and Sanitation
+                                </td>
+                                <td>9</td>
+                                <td>74.7%</td>
+                                <td>45,000,036</td>
+                                <td>27,000,036</td>
+                                <td><span class="rate good">60.0%</span></td>
+                            </tr>
+                            <tr>
+                                <td class="department-name">
+                                    Water, Environment, Natural Resources &amp;
+                                    Climate Change
+                                </td>
+                                <td>1</td>
+                                <td>0.0%</td>
+                                <td>15,728,245</td>
+                                <td>64,265</td>
+                                <td><span class="rate low">0.4%</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <footer>
+                PMTS Dashboard &copy; 2026 | Project Monitoring and Tracking System
+            </footer>
+
+        </section>
+    </main>
+</div>
+
+<!-- SIMPLE POPUP -->
+<div class="modal-overlay" id="modalOverlay">
+    <div class="modal">
+        <button class="modal-close" id="closeModal"
+                aria-label="Close">&times;</button>
+        <h2 id="modalTitle">Dashboard</h2>
+        <div id="modalBody"></div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
